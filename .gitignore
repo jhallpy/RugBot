@@ -1,0 +1,14 @@
+.vscode
+build
+test
+__pycache__
+discord-bot
+dist
+prod
+assets
+
+
+test_main.py
+*.7z
+*.txt
+*.spec
