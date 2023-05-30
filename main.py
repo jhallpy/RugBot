@@ -19,6 +19,7 @@ stop_program = False
 if os.path.isdir(test_directory):
     print("TESTING MODE.")
     load_dotenv(dotenv_path=os.path.join(current_directory, "test/.env"))
+    # Parse as an int or it won't work when passed to client.get_channel()
     CHANNEL_NUM = int(os.getenv("TEST_CHANNEL"))
     with open("test/test_users.json", "r", errors="ignore") as f:
         test_users = json.load(f)
@@ -32,12 +33,12 @@ if os.path.isdir(test_directory):
 else:
     print("Production Mode of RugBot is now active.")
     load_dotenv(dotenv_path=os.path.join(current_directory, "prod/.env"))
+    # Parse as an int or it won't work when passed to client.get_channel()
     CHANNEL_NUM = int(os.getenv("LIVE_CHANNEL"))
 
 print("Config data loaded.")
 
 
-# Parse as an int or it won't work when passed to client.get_channel()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 TWITCH_TOKEN = os.getenv("TWITCH_TOKEN")
 TWITCH_CLIENT = os.getenv("TWITCH_CLIENT")
